@@ -49,6 +49,15 @@
         v-model="logradouro"
         label="logradouro"
         readonly
+        v-if="!cepGeral"
+      >
+      </q-input>
+      <q-input
+        class="q-ma-xs"
+        outlined
+        v-model="logradouro"
+        label="logradouro"
+        v-if="cepGeral"
       >
       </q-input>
       <q-input
@@ -57,6 +66,15 @@
         v-model="bairro"
         label="bairro"
         readonly
+        v-if="!cepGeral"
+      >
+      </q-input>
+      <q-input
+        class="q-ma-xs"
+        outlined
+        v-model="bairro"
+        label="bairro"
+        v-if="cepGeral"
       >
       </q-input>
       <q-input
@@ -99,6 +117,7 @@ export default defineComponent({
       retorno: false,
       text: null,
       cep: null,
+      cepGeral: null
     };
   },
   methods: {
@@ -111,12 +130,12 @@ export default defineComponent({
         .get(`https://viacep.com.br/ws/${this.numeroCep}/json/`)
         .then((resposta) => {
           this.cep = resposta.data.cep;
+          this.cepGeral= this.cep.includes("-000")
           this.logradouro = resposta.data.logradouro;
           this.bairro = resposta.data.bairro;
           this.localidade = resposta.data.localidade;
           this.uf = resposta.data.uf;
-          console.log(resposta.data);
-          return (this.retorno = true);
+          return this.retorno = true, this.error = false;
         })
         .catch((error) => {
           this.getError();
