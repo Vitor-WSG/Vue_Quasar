@@ -113,11 +113,13 @@ export default defineComponent({
   name: "App",
   data() {
     return {
-      error: false,
-      retorno: false,
+      error: false, //exibir ou esconder tela de erro
+      retorno: false, //caso CEP seja válido, retorna tela com as informacoes
       text: null,
       cep: null,
-      cepGeral: null
+      cepGeral: null, //caso true valida preencher campos, logradouro e bairro
+      bairro: null,
+      logradouro:null
     };
   },
   methods: {
