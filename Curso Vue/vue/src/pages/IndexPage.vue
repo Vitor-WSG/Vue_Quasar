@@ -6,8 +6,10 @@
       <li><q-btn color="primary" icon="check" label="Condicionais" @click="onCondicionais" /></li>
       <li><q-btn color="primary" icon="check" label="DataBind" @click="onDataBind" /></li>
       <li><q-btn color="primary" icon="check" label="Two way data Bind" @click="onTwoWayDataBind" /></li>
-      <li><q-btn color="primary" icon="check" label="For" @click="onFor" /></li>
+      <li><q-btn color="primary" icon="check" label="Prop Computada" @click="onPropsComp" /></li>
       <li><q-btn color="primary" icon="check" label="Eventos" @click="onEvents" /></li>
+      <li><q-btn color="primary" icon="check" label="Observadores(watch)" @click="observables" /></li>
+      <li><q-btn color="primary" icon="check" label="lifeCycle" @click="lifeCycle" /></li>
     </ul>
   </div>
 </template>
@@ -30,12 +32,18 @@ export default {
     onTwoWayDataBind() {
       this.$router.push({name:"twowaydatabind"})
     },
-    onFor() {
-      this.$router.push({name:"onfor"})
-    },
     onEvents() {
       this.$router.push({name:"eventos"})
-    }
+    },
+      onPropsComp() {
+        this.$router.push({name:"computadas"})
+      },
+      observables() {
+        this.$router.push({name:"observables"})
+      },
+      lifeCycle() {
+        this.$router.push({name:"lifecycle"})
+      },
   },
 }
 </script>

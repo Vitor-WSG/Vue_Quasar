@@ -23,7 +23,12 @@
         @mouseleave="onMouseLeave"
       />
       {{ texto }}
-      {{ mouse }}
+    </div>
+    <br /><br />
+    <div>
+      <p>Evendos de teclado</p>
+      <q-input v-model="teclas" @keyup.enter="onEnter"/>
+      {{enter}}
     </div>
   </div>
 </template>
@@ -34,6 +39,8 @@ export default {
   data() {
     return {
       texto: "",
+      teclas:'',
+      enter:''
     };
   },
   methods: {
@@ -45,6 +52,9 @@ export default {
     },
     onMouseLeave() {
       this.texto = "Mouse saiu";
+    },
+    onEnter() {
+      this.enter = "Botão enter pressionado";
     },
   },
 };
