@@ -4,6 +4,7 @@
 
     <p>Informe seu usuario</p>
     <select v-model="usuario">
+      <option value="">Escolha</option>
       <option value="admin">admin</option>
       <option value="usuario">usuario</option>
       <option>visitante</option>
@@ -16,10 +17,12 @@
 
   <span>Usar V-show ?</span>
   <br>
-    <q-radio v-model="show" label="Sim" />
-    <q-radio v-model="nshow" label="Não" />
+  <input type="radio" v-model="vshow" value=true>Sim
+  <input type="radio" v-model="vshow" value=false>Não
     <br>
-    <span v-show='show'>Usando o V-show como condicional</span>
+    <span v-if="vshow=='true'">Usando o V-show como condicional</span>
+    <br><br>
+    {{vshow}}
   </div>
 </template>
 
@@ -29,8 +32,7 @@ export default {
   data() {
     return {
       usuario: "",
-      show: true,
-      nshow: false,
+      vshow: '',
     };
   },
 };
